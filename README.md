@@ -5,6 +5,10 @@ apt upgrade
 apt dist-upgrade
 apt autoremove
 ```
+### change hostname 
+```
+hostnamectl set-hostname my-new-hostname
+```
 ### set timezone
 ```
 timedatectl set-timezone Asia/Tehran
@@ -29,6 +33,8 @@ maxrepeat = 3
 ```
 adduser username
 usermod -aG sudo username
+visudo
+user ALL=(ALL) NOPASSWD:ALL
 ```
 ### Secure SSH Access
 ```

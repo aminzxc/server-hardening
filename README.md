@@ -5,6 +5,12 @@ apt upgrade
 apt dist-upgrade
 apt autoremove
 ```
+### set timezone
+```
+timedatectl set-timezone Asia/Tehran
+timedatectl set-ntp true
+timedatectl
+```
 ### Set Strong Password Policies
 ```
 # Edit /etc/login.defs

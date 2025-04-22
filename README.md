@@ -28,7 +28,7 @@ usermod -aG sudo username
 ```
 # Edit /etc/ssh/sshd_config
 Port 2222                    # Change default port
-PermitRootLogin no          # Disable root login
+PermitRootLogin no  or prohibit-password     # Disable root login
 PasswordAuthentication no    # Use key-based auth only
 MaxAuthTries 3
 AllowUsers username         # Specify allowed users
@@ -40,8 +40,17 @@ MaxSessions 2                  # Currently 10
 TCPKeepAlive no                # Currently yes
 X11Forwarding no               # Currently yes
 AllowAgentForwarding no        # Currently yes
+ChallengeResponseAuthentication no
+UsePAM no
 # Restart SSH service
 systemctl restart sshd
+```
+### install fish
+```
+apt install fish -y
+chsh -s /usr/bin/fish user
+nano /etc/adduser.conf
+DSHELL=/bin/bash change to DSHELL=/usr/bin/fish
 ```
 ### Configure SSH Key Authentication
 ```

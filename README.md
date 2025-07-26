@@ -5,6 +5,12 @@ apt upgrade
 apt dist-upgrade
 apt autoremove
 ```
+### Extend space volume
+```
+vgs
+lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+resize2fs /dev/ubuntu-vg/ubuntu-lv
+```
 ### change hostname 
 ```
 hostnamectl set-hostname my-new-hostname

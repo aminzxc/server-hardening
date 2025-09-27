@@ -63,6 +63,11 @@ UsePAM no
 # Restart SSH service
 systemctl restart sshd
 ```
+### Nmap scaning
+```
+nmap -Pn -n --open -sS -sV -T4 --min-rate 1500 -p- IP
+nmap -Pn -n -p3962 -sV --script=ssh-auth-methods,ssh2-enum-algos IP
+```
 ### install fish
 ```
 apt install fish -y

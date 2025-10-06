@@ -78,8 +78,8 @@ DSHELL=/bin/bash change to DSHELL=/usr/bin/fish
 ### Configure SSH Key Authentication
 ```
 # On local machine
-ssh-keygen -t ed25519 -b 4096
-ssh-copy-id -i ~/.ssh/id_ed25519.pub username@server_ip
+ssh-keygen -t ed25519 -f /root/.ssh/backup_rsync_ed25519 -C "mongo-backup@HOST" -N ''
+ssh-copy-id -i ~/.ssh/backup_rsync_ed25519.pub username@server_ip
 ```
 ### Configure UFW
 ```

@@ -238,3 +238,62 @@ apt install rkhunter chkrootkit lynis
 # Using Lynis
 lynis audit system
 ```
+### T shoot
+### DNS
+# If +short is empty, the record does not exist
+# If +trace stopped or NS was incorrect → problem in Delegation/NS
+```
+# record A/AAAA/CNAME/MX/NS
+dig oto.ir A +short
+dig api.oto.ir CNAME +short
+# unic dns server
+dig @8.8.8.8 oto.ir A +short
+# Timing and details
+dig oto.ir A +stats
+# Complete path delegation (ریشه→TLD→Authoritative)
+dig +trace oto.ir
+# record TXT (for SPF/DMARC/Validation)
+dig oto.ir TXT +short
+# Ask authoritative NSs directly.
+dig @p.ns.arvancdn.ir oto.ir A +noall +answer
+```
+### Network connection and route
+```
+ping -c 4 oto.ir
+mtr -rw oto.ir
+traceroute oto.ir
+tracepath oto.ir
+```
+### Port
+```
+nc -vz oto.ir 443
+telnet 78.110.121.88 80
+```
+### SSL & TLS
+```
+openssl s_client -connect oto.ir:443 -servername oto.ir </dev/null | openssl x509 -noout -issuer -subject -dates
+```
+### CURL
+```
+curl -I https://oto.ir
+# Headers, status code, and timing
+curl -sS -o /dev/null -w 'dns=%{time_namelookup}s conn=%{time_connect}s tls=%{time_appconnect}s ttfb=%{time_starttransfer}s total=%{time_total}s code=%{http_code}\n' https://oto.ir
+# Only headers
+curl -I https://oto.ir
+# Direct Origin Testing Behind a CDN with a Custom Host
+curl -H 'Host: oto.ir' --resolve oto.ir:80:78.110.121.88 -I http://oto.ir
+# Tracking redirects and showing the path
+curl -IL https://oto.ir
+```
+### System, services and logs
+```
+systemctl status nginx
+journalctl -u nginx --since "30 min ago" or -f
+dmesg -T | tail -n 50
+```
+### script staus ssl
+```
+git clone https://github.com/drwetter/testssl.sh.git
+cd testssl.sh
+./testssl.sh https://oto.ir
+```

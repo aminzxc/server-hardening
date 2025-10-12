@@ -261,6 +261,7 @@ dig @p.ns.arvancdn.ir oto.ir A +noall +answer
 ```
 ping -c 4 oto.ir
 mtr -rw oto.ir
+mtr -rw -P 80 -T 78.110.121.855
 traceroute oto.ir
 tracepath oto.ir
 ```

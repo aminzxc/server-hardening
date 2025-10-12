@@ -5,6 +5,10 @@ apt upgrade
 apt dist-upgrade
 apt autoremove
 ```
+### install service
+```
+apt install vnstat tcpdump iperf3  dnsutils traceroute  vim htop curl wget net-tools  lsb-release ca-certificates
+```
 ### Extend space volume
 ```
 vgs

@@ -250,7 +250,7 @@ dig api.oto.ir CNAME +short
 dig @8.8.8.8 oto.ir A +short
 # Timing and details
 dig oto.ir A +stats
-# Complete path delegation (ریشه→TLD→Authoritative)
+# Complete path delegation (root→TLD→Authoritative)
 dig +trace oto.ir
 # record TXT (for SPF/DMARC/Validation)
 dig oto.ir TXT +short

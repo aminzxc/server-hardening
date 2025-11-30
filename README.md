@@ -296,6 +296,21 @@ systemctl status nginx
 journalctl -u nginx --since "30 min ago" or -f
 dmesg -T | tail -n 50
 ```
+### test download & upload speed server with ISP & Data center
+```
+wget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz
+tar -xvf ookla-speedtest-1.2.0-linux-x86_64.tgz
+mv speedtest /usr/local/bin/
+speedtest --accept-license --accept-gdpr
+speedtest -L
+speedtest -s 4317
+# Your data center internal routes are healthy
+Ping under 5ms
+jitter under 5ms
+download 300+
+upload 100+
+# jitter --> The amount of fluctuation in packet arrival times
+```
 ### script staus ssl
 ```
 git clone https://github.com/drwetter/testssl.sh.git

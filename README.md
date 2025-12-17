@@ -294,6 +294,9 @@ curl -IL https://oto.ir
 ```
 systemctl status nginx
 journalctl -u nginx --since "30 min ago" or -f
+journalctl -k --> kernel log
+journalctl -k --list-boots
+journalctl -k -b -1
 dmesg -T | tail -n 50
 ```
 ### test download & upload speed server with ISP & Data center

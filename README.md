@@ -69,6 +69,7 @@ systemctl restart sshd
 ```
 ### Nmap scaning
 ```
+nmap -Pn -n -p 1-65535 --open IP
 nmap -Pn -n --open -sS -sV -T4 --min-rate 1500 -p- IP
 nmap -Pn -n -p3962 -sV --script=ssh-auth-methods,ssh2-enum-algos IP
 ```

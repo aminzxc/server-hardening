@@ -63,7 +63,10 @@ TCPKeepAlive no                # Currently yes
 X11Forwarding no               # Currently yes
 AllowAgentForwarding no        # Currently yes
 ChallengeResponseAuthentication no
+PubkeyAuthentication yes
+AuthenticationMethods publickey
 UsePAM no
+KbdInteractiveAuthentication no
 # Restart SSH service
 systemctl restart sshd
 ```

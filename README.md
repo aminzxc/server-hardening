@@ -293,6 +293,11 @@ curl -I https://oto.ir
 curl -H 'Host: oto.ir' --resolve oto.ir:80:78.110.121.88 -I http://oto.ir
 # Tracking redirects and showing the path
 curl -IL https://oto.ir
+test up & speed site
+curl -sS -o /dev/null --connect-timeout 5 --max-time 30 -w 'HTTP=%{http_code}\nDNS=%{time_namelookup}s\nConnect=%{time_connect}s\nTLS=%{time_appconnect}s\nTTFB=%{time_starttransfer}s\nTotal=%{time_total}s\n' https://WEBSITE/
+# Resolves the domain name api.telegram.org to an IPv4 address using the Linux Name Service Switch.
+# getent retrieves information from the sources defined in this file cat /etc/nsswitch.conf
+getent ahostsv4 api.telegram.org
 ```
 ### System, services and logs
 ```
